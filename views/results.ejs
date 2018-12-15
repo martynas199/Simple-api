@@ -1,0 +1,51 @@
+<% include ./partials/header %>
+<header>
+    <h1>
+       HTML-Table
+        <span class="blue">&gt;</span>
+        <span class="yellow">Responsive</pan>
+            <h2>
+                Results page</h2>
+    </h1>
+</header>
+
+    <table class="container">
+        <thead>
+            <tr>
+                <th>
+                    <h1>Title</h1>
+                </th>
+                <th rowspan="2" colspan="2">
+                    <h1>link to imdb by ID</h1>
+                </th>
+                <th>
+                    <h1>Type</h1>
+                </th>
+                <th>
+                    <h1>Year</h1>
+                </th>
+                <th>
+                    <h1>Image</h1>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data["Search"].forEach(function(movie){%>
+            <tr>
+                <td><%= movie["Title"] %>
+                </td>
+                <td colspan="2">
+                    <a class="navbar-brand" href="https://www.imdb.com/title/<%= movie["imdbID"] %>"</a><%= movie["imdbID"] %></a>
+                    </td>
+                <td><%= movie["Type"] %></td>
+                <td><%= movie["Year"] %></td>
+                <td class="poster"><img src="<%= movie["Poster"] %>" alt=""></td>
+            </tr>
+
+            <% }) %>
+        </tbody>
+           
+    </table>
+
+<% include ./partials/footer %>
+
